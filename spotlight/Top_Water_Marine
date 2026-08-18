@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Water Marine — Palm Coast, FL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0b1826;
+      --navy-mid:    #112236;
+      --navy-light:  #1a3352;
+      --panel:       #ffffff;
+      --panel-off:   #f4f6f9;
+      --accent:      #f5a623;   /* signal orange / safety yellow */
+      --accent-dark: #c9841a;
+      --text-primary: #0b1826;
+      --text-muted:  #5a6a7e;
+      --hairline:    #d0dae6;
+      --mono:        'Space Mono', monospace;
+      --sans:        'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--navy);
+      color: var(--panel);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Concept banner ── */
+    .concept-banner {
+      background: #1e2a38;
+      border-bottom: 1px solid #2e4058;
+      text-align: center;
+      padding: 10px 5%;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: #8fa8c4;
+      letter-spacing: 0.04em;
+    }
+    .concept-banner strong { color: var(--accent); }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 24, 38, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1e3250;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--panel);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--navy);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 5% 72px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.nowake.com/wp-content/uploads/2025/03/AdobeStock_272924653-scaled.jpeg');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.35) saturate(0.7);
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,24,38,0.95) 0%, rgba(11,24,38,0.4) 60%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+      color: var(--panel);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #b8cfe8;
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.55;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--navy);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--panel);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: rgba(245,166,35,0.08); }
+
+    /* ── Proof strip ── */
+    .proof-strip {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 20px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(4px);
+    }
+    .proof-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .proof-number {
+      font-family: var(--mono);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .proof-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8fa8c4;
+    }
+    .proof-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+    }
+    .proof-stars {
+      color: var(--accent);
+      font-size: 1.15rem;
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+    .proof-qual {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #b8cfe8;
+      max-width: 180px;
+      line-height: 1.35;
+    }
+
+    /* ── Section wrapper ── */
+    .section {
+      padding: 88px 5%;
+    }
+    .section-white {
+      background: var(--panel);
+      color: var(--text-primary);
+    }
+    .section-off {
+      background: var(--panel-off);
+      color: var(--text-primary);
+    }
+    .section-dark {
+      background: var(--navy-mid);
+      color: var(--panel);
+    }
+    .section-navy {
+      background: var(--navy);
+      color: var(--panel);
+    }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+    .section-dark .section-header p,
+    .section-navy .section-header p { color: #8fa8c4; }
+    .section-dark .section-header h2,
+    .section-navy .section-header h2 { color: var(--panel); }
+
+    /* ── Hairline rule ── */
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--hairline);
+      margin: 0;
+    }
+    .section-dark hr.rule,
+    .section-navy hr.rule { border-top-color: #1e3250; }
+
+    /* ── Services grid ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+      border: 1px solid var(--hairline);
+    }
+    .service-card {
+      padding: 32px 28px;
+      border: 1px solid var(--hairline);
+      background: var(--panel);
+      position: relative;
+      transition: background 0.18s;
+    }
+    .service-card:hover { background: #eef3fa; }
+    .service-card-num {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .service-card-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.25s;
+    }
+    .service-card:hover .service-card-accent { height: 100%; }
+
+    /* ── Photo interlude ── */
+    .photo-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 380px;
+      overflow: hidden;
+    }
+    .photo-band-img {
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-band-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8) saturate(0.75);
+      transition: filter 0.4s;
+      display: block;
+    }
+    .photo-band-img:hover img { filter: brightness(0.95) saturate(1); }
+    .photo-note {
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 10px 5%;
+      background: var(--panel-off);
+    }
+
+    /* ── Rating spotlight ── */
+    .rating-spotlight {
+      display: flex;
+      gap: 64px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .rating-big {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+    .rating-big .num {
+      font-family: var(--mono);
+      font-size: 5.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .rating-big .stars-row {
+      font-size: 1.6rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      display: block;
+      margin: 8px 0 6px;
+    }
+    .rating-big .source {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .rating-detail { flex: 1 1 300px; }
+    .rating-detail h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .rating-detail p {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .review-count-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--accent);
+      padding: 5px 14px;
+      border-radius: 2px;
+    }
+
+    /* ── Service area ── */
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: #1e3250;
+      border: 1px solid #1e3250;
+      margin-top: 8px;
+    }
+    .area-cell {
+      background: var(--navy-mid);
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .area-cell-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--panel);
+    }
+    .area-cell-detail {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: #6f90b4;
+    }
+    .area-proposed-note {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* ── CTA block ── */
+    .cta-block {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-block h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-block p {
+      font-size: 1.05rem;
+      color: #8fa8c4;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .cta-block .btn-primary { font-size: 0.85rem; padding: 16px 36px; }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--hairline);
+      border: 1px solid var(--hairline);
+    }
+    .contact-cell {
+      background: var(--panel);
+      padding: 32px 28px;
+    }
+    .contact-cell-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+    .contact-cell-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .contact-cell-value.placeholder {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .map-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--accent-dark);
+      padding-bottom: 1px;
+    }
+    .map-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Footer ── */
+    .footer {
+      background: #060e17;
+      padding: 44px 5% 32px;
+      border-top: 1px solid #101e2e;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--panel);
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-address {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      line-height: 1.7;
+      color: #4e6880;
+      letter-spacing: 0.04em;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4e6880;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid #101e2e;
+      padding-top: 20px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: #2e4558;
+      line-height: 1.7;
+    }
+
+    /* ── Numbered section marker ── */
+    .num-marker {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .num-marker::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: var(--accent);
+      max-width: 40px;
+    }
+    .section-white .num-marker::after,
+    .section-off .num-marker::after { background: var(--accent-dark); }
+    .section-white .num-marker,
+    .section-off .num-marker { color: var(--accent-dark); }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .photo-band { grid-template-columns: 1fr; height: auto; }
+      .photo-band-img { height: 220px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .rating-spotlight { flex-direction: column; gap: 32px; }
+      .proof-strip { gap: 20px; padding: 16px 20px; }
+      .proof-divider { display: none; }
+      .nav-logo { font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding-bottom: 52px; }
+      .section { padding: 60px 5%; }
+    }
+  </style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
+</head>
+<body>
+
+<!-- ── Concept banner ── -->
+<div class="concept-banner">
+  <strong>Design Concept Only</strong> — Unaffiliated design concept — created as a proposal for Top Water Marine. Not an official site.
+</div>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-logo">Top <span>Water</span> Marine</div>
+  <a href="#contact" class="nav-cta">Request Service</a>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="section-label">Palm Coast, FL &nbsp;·&nbsp; Marine Service &amp; Repair</div>
+    <h1>When Your Engine<br>Can't Wait, <em>We're</em><br>On the Water.</h1>
+    <p class="hero-sub">Top Water Marine keeps boats running on the Intracoastal and along the Flagler coast. Diagnostic, engine, maintenance, and seasonal work — done right.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request Service</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+    <div class="proof-strip">
+      <div class="proof-item">
+        <span class="proof-number">5.0</span>
+        <span class="proof-label">Google Rating</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-stars">★★★★★</span>
+        <span class="proof-label">Perfect Score</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-number">30</span>
+        <span class="proof-label">Verified Reviews</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-qual">Every review: five stars. No exceptions.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Photo band ── -->
+<div class="photo-band">
+  <div class="photo-band-img">
+    <img
+      src="https://www.nowake.com/wp-content/uploads/2025/03/AdobeStock_272924653-scaled.jpeg"
+      alt="Outboard engine service — illustrative stock photography"
+      loading="lazy"
+    />
+  </div>
+  <div class="photo-band-img">
+    <img
+      src="https://www.encirclephotos.com/wp-content/uploads/Florida-Fort-Lauderdale-Boats-All-Sizes-Intracoastal-Waterway-1440x961.jpg"
+      alt="Florida Intracoastal Waterway — illustrative stock photography"
+      loading="lazy"
+    />
+  </div>
+</div>
+<p class="photo-note">Photography is illustrative stock imagery representing the type of work and local waterways — not Top Water Marine's own facility or fleet.</p>
+
+<!-- ── Rating spotlight ── -->
+<section class="section section-off" id="rating">
+  <div class="num-marker">02 &nbsp;/ Reputation</div>
+  <div class="rating-spotlight">
+    <div class="rating-big">
+      <span class="num">5.0</span>
+      <span class="stars-row">★★★★★</span>
+      <span class="source">Google Reviews</span>
+    </div>
+    <div class="rating-detail">
+      <h3>A perfect rating, earned thirty times over.</h3>
+      <p>
+        Top Water Marine holds a flawless 5.0 on Google — across all thirty verified reviews. In a trade where even a single frustrated customer can pull a score down, a perfect record built from genuine feedback is the clearest signal a marine business can send.
+      </p>
+      <p>
+        No website. No ads. Word of mouth, repeat customers, and a five-star track record.
+      </p>
+      <span class="review-count-tag">30 Google Reviews &nbsp;·&nbsp; 5.0 Stars</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section class="section section-white" id="services">
+  <div class="num-marker">03 &nbsp;/ Services</div>
+  <div class="section-header">
+    <h2>Marine Service &amp; Repair</h2>
+    <p>Core disciplines for keeping vessels seaworthy along the Palm Coast corridor. Contact for specifics on your make, model, and situation.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 01</div>
+      <h3>Engine Service &amp; Repair</h3>
+      <p>Outboard and inboard engine work — from routine service to full fault diagnosis and mechanical repair. Get the full story on what's wrong before any work begins.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 02</div>
+      <h3>Diagnostics &amp; Troubleshooting</h3>
+      <p>Electronic and mechanical diagnostics to isolate faults accurately. No guesswork, no parts-swapping by feel — systematic identification first.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 03</div>
+      <h3>Routine Maintenance</h3>
+      <p>Scheduled service to keep engines and systems performing at spec: fluid services, filters, zincs, impellers, and the small-but-critical items that prevent larger failures.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 04</div>
+      <h3>Seasonal Preparation</h3>
+      <p>Pre-season commissioning and end-of-season lay-up. Proper preparation extends service life and avoids first-launch surprises when the season opens.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 05</div>
+      <h3>Mobile &amp; On-Water Response</h3>
+      <p>Service that comes to your dock or slip when the job calls for it. Reach out to discuss availability and scope for your specific location along the Flagler coast.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-accent"></div>
+      <div class="service-card-num">SVC — 06</div>
+      <h3>Electrical &amp; Systems</h3>
+      <p>Marine electrical diagnosis, wiring, and systems service. Bilge pumps, charging systems, instruments, and ancillary electronics — approached with the same precision as engine work.</p>
+    </div>
+
+  </div>
+
+  <p style="margin-top:20px; font-size:0.82rem; color:var(--text-muted); font-family:var(--mono); letter-spacing:0.04em;">
+    Services listed represent general marine-service categories. Contact for scope confirmation on your specific vessel.
+  </p>
+</section>
+
+<!-- ── Second photo ── -->
+<div class="photo-band" style="height:300px;">
+  <div class="photo-band-img">
+    <img
+      src="https://c8.alamy.com/comp/2WJ024Y/industrial-workers-repair-fishing-boat-in-dry-dock-maintenance-of-marine-vessel-hull-welding-painting-under-blue-sky-shipyard-activity-nautical-2WJ024Y.jpg"
+      alt="Boat hull maintenance in dry dock — illustrative stock photography"
+      loading="lazy"
+    />
+  </div>
+  <div class="photo-band-img">
+    <img
+      src="https://img.marinas.com/v2/481537bfdb322190059ea533c285279ed8913808e641a93236dd5b14a45838b5.jpg"
+      alt="Marina slips along Florida Intracoastal — illustrative stock photography"
+      loading="lazy"
+    />
+  </div>
+</div>
+<p class="photo-note">Photography is illustrative stock imagery. Not Top Water Marine's own facility or fleet.</p>
+
+<!-- ── Service area ── -->
+<section class="section section-dark" id="area">
+  <div class="num-marker">04 &nbsp;/ Coverage</div>
+  <div class="section-header">
+    <h2>Service Area</h2>
+    <p>The corridor served runs from Palm Coast south through Flagler Beach and inland toward Bunnell, along the Intracoastal Waterway.</p>
+  </div>
+
+  <span class="area-proposed-note">Proposed coverage area — to be confirmed with the business</span>
+
+  <div class="area-grid">
+    <div class="area-cell">
+      <span class="area-cell-name">Palm Coast</span>
+      <span class="area-cell-detail">Primary base of operations</span>
+    </div>
+    <div class="area-cell">
+      <span class="area-cell-name">Flagler Beach</span>
+      <span class="area-cell-detail">Atlantic coast access</span>
+    </div>
+    <div class="area-cell">
+      <span class="area-cell-name">Bunnell</span>
+      <span class="area-cell-detail">Flagler County inland</span>
+    </div>
+    <div class="area-cell">
+      <span class="area-cell-name">Intracoastal Waterway</span>
+      <span class="area-cell-detail">On-water service corridor</span>
+    </div>
+    <div class="area-cell">
+      <span class="area-cell-name">Surrounding Flagler Co.</span>
+      <span class="area-cell-detail">Contact for specifics</span>
+    </div>
+  </div>
+
+  <p style="margin-top:24px; font-size:0.8rem; color:#4e6880; font-family:var(--mono); letter-spacing:0.04em;">
+    This coverage map is a design proposal only. Actual service area subject to confirmation with Top Water Marine directly.
+  </p>
+</section>
+
+<!-- ── CTA ── -->
+<section class="section section-navy" id="cta">
+  <div class="cta-block">
+    <div class="num-marker" style="justify-content:center;">05 &nbsp;/ Contact</div>
+    <h2>Ready to Get Your Boat Back on the Water?</h2>
+    <p>Reach out to discuss your vessel, the issue, and availability. A five-star service record means the job is done right the first time.</p>
+    <a href="#contact" class="btn-primary">Request Service</a>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="section section-white" id="contact">
+  <div class="num-marker">06 &nbsp;/ Contact</div>
+  <div class="section-header">
+    <h2>Get in Touch</h2>
+    <p>Contact details below. Phone, email, and hours will be confirmed and added before the site goes live.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Address</div>
+      <div class="contact-cell-value">
+        Top Water Marine<br />
+        500 Shady Oaks Drive<br />
+        Palm Coast, FL 32164
+      </div>
+      <a
+        href="https://maps.google.com/?q=500+Shady+Oaks+Drive+Palm+Coast+FL+32164"
+        class="map-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Open in Google Maps →</a>
+    </div>
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Phone</div>
+      <div class="contact-cell-value placeholder">[ To be confirmed ]</div>
+    </div>
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Email</div>
+      <div class="contact-cell-value placeholder">[ To be confirmed ]</div>
+    </div>
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Hours</div>
+      <div class="contact-cell-value placeholder">[ To be confirmed ]</div>
+    </div>
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Google Reviews</div>
+      <div class="contact-cell-value">
+        5.0 ★★★★★ &nbsp;·&nbsp; 30 Reviews
+      </div>
+      <a
+        href="https://www.google.com/search?q=Top+Water+Marine+Palm+Coast+FL"
+        class="map-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >View on Google →</a>
+    </div>
+
+    <div class="contact-cell">
+      <div class="contact-cell-label">Service Request</div>
+      <div class="contact-cell-value placeholder">[ Online form — to be built ]</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Top <span>Water</span> Marine</div>
+      <div class="footer-address" style="margin-top:10px;">
+        500 Shady Oaks Drive<br />
+        Palm Coast, FL 32164<br />
+        Marine Service &amp; Repair
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#services">Services</a>
+      <a href="#rating">Reviews</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    Unaffiliated design concept — created as a proposal for Top Water Marine. Not an official website. All contact details, hours, and certifications marked "to be confirmed" must be verified with the business before publication. Stock photography is illustrative and does not depict Top Water Marine's actual facility, staff, or fleet. Service area is proposed, not asserted.
+  </div>
+</footer>
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
+</body>
+</html>
